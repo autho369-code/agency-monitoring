@@ -13,7 +13,8 @@ DISCORD_WEBHOOK = os.environ.get("DISCORD_MONITORING_WEBHOOK", "")
 
 def load_sites():
     if not os.path.exists(SITES_FILE):
-        print(json.dumps({"status": "no_sites_file", "message": f"Create {SITES_FILE} with [{\"url\": \"...\", \"name\": \"...\"}]"}))
+        example = '[{"url": "https://example.com", "name": "Example"}]'
+        print(json.dumps({"status": "no_sites_file", "message": "Create " + SITES_FILE + " with " + example}))
         sys.exit(0)
     with open(SITES_FILE) as f:
         return json.load(f)
